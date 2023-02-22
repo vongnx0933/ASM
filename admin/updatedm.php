@@ -36,17 +36,17 @@
 
                                 foreach($dsdm as $set ):
                                     $xoa ="<a href='admin.php?act=qldm&del=".$set['id']."'>Delete</a>";
-                                    $edit="<a href='admin.php?act=updatedm&edit=".$set['id']."'> Edit </a>";
                                     
                              echo  " <tr>
                                     <td>".$set['id']."</td>
                                     <td>".$set['catalog_name']." </td>
                                     <td>".$set['stt']." </td>
-                                    <td>".$xoa." - ".$edit."</td>
+                                    <td>".$xoa." </td>
 
                                 </tr>";
                                 endforeach;
-                                ?> </tbody>
+                                ?>
+                            </tbody>
                         </table>
                     </div>
                 </div>

@@ -74,7 +74,7 @@
                   $rand=rand(0,999999);
                   $tach=explode(".",$image);
                   $image=$sp1.$rand.$tach[0].".".$tach[1]; 
-                  $target=$linkprod.$image; 
+                  $target=$linkimg.$image; 
                   move_uploaded_file($_FILES['product_image']['tmp_name'],$target);
                 }
                 $sp = new Product();
@@ -86,7 +86,48 @@
               
                 include "admin/qlsp.php";
                 break;
+          case 'updatesp':
             
+            if(isset($_GET['editsp']) && ($_GET['editsp']>0)){
+              $id=$_GET['editsp'];
+              $sp= new Product();
+              $spone = $sp->getone_product($id);
+              
+              $prod=new Product();
+              $dssp=$prod->getall_product();
+            
+            include "admin/updatesp.php";
+            
+            }
+            if(isset($_POST['editsp'])&& $_POST['editsp']){
+              $id=$_POST['id'];
+              $tensanpham=$_POST['product_name'];
+              $price=$_POST['price'];
+              $mathang =$_POST['catalog_id'];
+              $mota=$_POST['descript'];
+              $soluong = $_POST['amount'];
+              $image=$_FILES['product_image']['name'];
+              if($image!=""){
+                $sp = new Product();
+                $sp1 = $sp->getlast();
+                $sp1 = $sp1['id'] + 1; 
+                $rand=rand(0,999999);
+                $tach=explode(".",$image);
+                $image=$sp1.$rand.$tach[0].".".$tach[1]; 
+                $target=$linkimg.$image; 
+                move_uploaded_file($_FILES['product_image']['tmp_name'],$target);
+              }
+              $sp = new Product();
+              $sp->Editproduct($tensanpham,$image,$price,$mota,$mathang,$soluong,$id);
+            
+              
+              $prod=new Product();
+              $dssp=$prod->getall_product();
+            
+            include "admin/qlsp.php";
+            }
+            break;
+              
           default:
         include "admin/home.php";
         break;

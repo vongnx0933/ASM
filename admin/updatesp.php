@@ -9,14 +9,15 @@
         </nav>
     </div><!-- End Page Title -->
     <div class="row">
-        <form action="?act=qlsp" method="post" enctype="multipart/form-data">
-            <input type="text" name="product_name" placeholder=" Tên sản phẩm">
-            <input type="number" name="price" placeholder="Giá bán">
-            <input type="file" name="product_image">
-            <input type="number" name="catalog_id" placeholder="Loại sản phẩm">
-            <input type="text" name="descript" placeholder="Mổ tả">
-            <input type="number" name="amount" placeholder="Số lượng">
-            <input type="submit" value="Thêm" name="themsp">
+        <form action="?act=updatesp" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="id" value="<?=$spone['id']?>">
+            <input type=" text" name="product_name" value="<?=$spone['product_name']?>">
+            <input type="number" name="price" value="<?=$spone['price']?>">
+            <input type="file" name="product_image" value="<?=$spone['product_image']?>">
+            <input type="number" name="catalog_id" value="<?=$spone['catalog_id']?>">
+            <input type="text" name="descript" value="<?=$spone['descript']?>">
+            <input type="number" name="amount" value="<?=$spone['amount']?>">
+            <input type="submit" value="Cập nhật sản phẩm" name="editsp">
         </form>
     </div>
     <section class="section dashboard">
@@ -24,40 +25,36 @@
             <div class="col-lg-12">
                 <div class="card top-selling overflow-auto">
                     <div class="card-body pb-0">
-                        <h5 class="card-title">Danh Sách Danh Mục </h5>
+                        <h5 class="card-title">Danh Sách sản phẩm </h5>
                         <table class="table table-borderless">
                             <thead>
                                 <tr>
                                     <th scope="col">ID</th>
                                     <th scope="col">Tên sản phẩm</th>
-                                    <th scope="col">Giá bán</th>
+                                    <th scope="col">Giá sản phẩm</th>
                                     <th scope="col">Hình ảnh</th>
-                                    <th scope="col">Loại sản phẩm</th>
-                                    <th scope="col">Mổ tả</th>
+                                    <th scope="col">ID loại sản phẩm</th>
+                                    <th scope="col">Mô tả</th>
                                     <th scope="col">Số lượng</th>
                                     <th scope="col">Hành động</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php 
-
-                                foreach($dssp as $set ):
-                                    $img=$linkimg.$set['product_image'];
+                                foreach ($dssp as $prod):
+                                    $img = $linkimg.$prod['product_image'];
                                     $img="<img src='".$img."' width='100px'>";
-                                    $xoa ="<a href='admin.php?act=qlsp&del=".$set['id']."'>Delete</a>";
-                                    $edit="<a href='admin.php?act=updatesp&editsp=".$set['id']."'> Edit </a>";
+                                    $xoa ="<a href='admin.php?act=qlsp&del=".$prod['id']."'>Delete</a>";
                                     
                              echo  " <tr>
-                                    <td>".$set['id']."</td>
-                                    <td>".$set['product_name']." </td>
-                                    <td>".$set['price']." </td>
+                                    <td>".$prod['id']."</td>
+                                    <td>".$prod['product_name']." </td>
+                                    <td>".$prod['price']."</td>
                                     <td>".$img."</td>
-                                    <td>".$set['catalog_id']." </td>
-                                    <td>".$set['descript']." </td>
-                                    <td>".$set['amount']." </td>
-                                    
-                                    <td>".$xoa." - ".$edit."</td>
-
+                                    <td>".$prod['catalog_id']."</td>
+                                    <td>".$prod['descript']."</td>
+                                    <td>".$prod['amount']."</td>
+                                    <td>".$xoa."</td>
                                 </tr>";
                                 endforeach;
                                 ?>
@@ -67,6 +64,5 @@
                 </div>
             </div><!-- End Top Selling -->
         </div>
-
     </section>
 </main><!-- End #main -->
