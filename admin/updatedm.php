@@ -1,20 +1,19 @@
 <main id="main" class="main">
-
-
     <div class="pagetitle">
-        <h1>Quản lý danh mục</h1>
+        <h1>Cập nhập danh mục</h1>
         <nav>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="admin.php">Home</a></li>
-                <li class="breadcrumb-item active">Quản lý danh mục</li>
+                <li class="breadcrumb-item active">Cập nhập danh mục</li>
             </ol>
         </nav>
     </div><!-- End Page Title -->
     <div class="row">
-        <form action="?act=qldm" method="post" enctype="multipart/form-data">
-            <input type="text" name="catalog_name" placeholder=" Tên danh mục">
-            <input type="text" name="stt" placeholder=" Số thự tự">
-            <input type="submit" value="Thêm" name="them">
+        <form action="?act=updatedm" method="post" enctype="multipart/form-data">
+            <input type="text" name="catalog_name" value="<?=$dmone['catalog_name']?>">
+            <input type="hidden" name="id" value=" <?=$dmone['id']?>">
+            <input type=" text" name="stt" value=" <?=$dmone['stt']?>">
+            <input type="submit" value="Cập nhập" name="edit">
         </form>
     </div>
     <section class="section dashboard">
@@ -47,8 +46,7 @@
 
                                 </tr>";
                                 endforeach;
-                                ?>
-                            </tbody>
+                                ?> </tbody>
                         </table>
                     </div>
                 </div>

@@ -31,11 +31,9 @@
                                         <tr>
                                             <th scope="row"><a href="#"><img src="assets/img/product-1.jpg" alt=""></a>
                                             </th>
-                                            <td><a href="#" class="text-primary fw-bold">Giày chạy bộ nhanh mệt</a>
-                                            </td>
+                                            <td> </td>
                                             <td>$64</td>
-                                            <td class="fw-bold">124</td>
-                                            <td>$5,828</td>
+                                            
                                         </tr>
                                     </tbody>
                                 </table>
