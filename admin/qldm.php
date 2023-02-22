@@ -14,7 +14,7 @@
         <form action="?act=qldm" method="post" enctype="multipart/form-data">
             <input type="text" name="catalog_name" placeholder=" Tên danh mục">
             <input type="text" name="stt" placeholder=" Số thự tự">
-            <input type="submit" value="Thêm" name="them">
+            <input type="submit" value="Thêm">
         </form>
     </div>
     <section class="section dashboard">

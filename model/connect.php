@@ -1,4 +1,5 @@
 <?php
+
 class connect{
     public $db=null;
     function __construct(){
@@ -33,4 +34,5 @@ class connect{
         $this->db->exec($query);
     }
 }
+
 ?>

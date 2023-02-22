@@ -25,7 +25,6 @@ Class Catalog extends connect{
     
     function addcata($name,$stt)
     {
-
         $query = "INSERT INTO catalog(catalog_name,stt) VALUES ('$name','$stt')";
         parent::exec($query);
     }
